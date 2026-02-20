@@ -35,30 +35,23 @@ npm install -g @google/gemini-cli
         }
         ```
 
-## Install the Google Maps Platform Code Assist skill for [Claude Code](https://claude.ai/code)
+## Install the Google Maps Platform Code Assist plugin for [Claude Code](https://claude.ai/code)
+
+This repository is a Claude Code plugin. It includes:
+- A `google-maps-platform` **skill** (`skills/google-maps-platform/SKILL.md`) that teaches Claude when and how to use GMP tools.
+- An **MCP server** (`.mcp.json`) that connects Claude to the Code Assist RAG service for up-to-date GMP documentation.
 
 1. Install Claude Code ([installation guide](https://docs.anthropic.com/en/docs/claude-code/getting-started))
 
-2. Install the Google Maps Platform skill
+2. Add the MCP server from your command line:
 
-    * Option 1 - Add the MCP server directly from your command line:
-        ```bash
-        claude mcp add google-maps-platform-code-assist -- npx -y @googlemaps/code-assist-mcp@latest
-        ```
-      * Verify the installation by running `claude mcp list`.
-    * Option 2 - Add the MCP server config manually to your `~/.claude.json` file.
-        ```json
-        {
-          "mcpServers": {
-            "google-maps-platform-code-assist": {
-              "command": "npx",
-              "args": ["-y", "@googlemaps/code-assist-mcp@latest"]
-            }
-          }
-        }
-        ```
+    ```bash
+    claude mcp add google-maps-platform-code-assist -- npx -y @googlemaps/code-assist-mcp@latest
+    ```
 
-    The `CLAUDE.md` file in this repository provides Claude Code with the Google Maps Platform context and instructions automatically when used in this project directory.
+    * Verify the installation by running `claude mcp list`.
+
+    The `skills/google-maps-platform/SKILL.md` skill is automatically available to Claude Code when this repository is cloned locally or used as a plugin source.
 
 ## Install the Google Maps Platform Code Assist toolkit for other MCP clients.
 
